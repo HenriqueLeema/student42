@@ -6,11 +6,51 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:33:46 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/04 00:35:36 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:44:41 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putchar(char c)
+{
+	return (write (1, &c, 1));
+}
+
+int	ft_putstr(char *str)
+{
+	auto int i = 0;
+	if (str == NULL)
+	{
+		return (write(1, "(null)", 6));
+	}
+	while (str[i] != '\0')
+		ft_putchar(str[i++]);
+	return (i);
+}
+
+int	ft_basenbr(size_t n, const char *base, int is_pointer)
+{
+	auto size_t base_len = 0;
+	auto int count = 0;
+	while (base[base_len])
+		base_len++;
+	if (is_pointer) 
+	{
+		if (n == 0) 
+			return (write(1, "(nil)", 5));
+		count += write(1, "0x", 2);
+	}
+	if (base_len == 10 && (ssize_t)n < 0)
+	{
+		count += write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= base_len)
+		count += ft_basenbr(n / base_len, base, 0);
+	count += write(1, &base[n % base_len], 1);
+	return (count);
+}
 
 int	ft_parsef(char fmt, va_list ap)
 {
@@ -19,15 +59,15 @@ int	ft_parsef(char fmt, va_list ap)
 	else if (fmt == 's')
 		return (ft_putstr(va_arg(ap, char *)));
 	else if (fmt == 'd' || fmt == 'i')
-		return (ft_basenbr(va_arg(ap, int), DCML));
+		return (ft_basenbr(va_arg(ap, int), DCML, 0));
 	else if (fmt == 'x')
-		return (ft_basenbr(va_arg(ap, unsigned int), HEXL));
+		return (ft_basenbr(va_arg(ap, unsigned int), HEXL, 0));
 	else if (fmt == 'X')
-		return (ft_basenbr(va_arg(ap, unsigned int), HEXU));
+		return (ft_basenbr(va_arg(ap, unsigned int), HEXU, 0));
 	else if (fmt == 'u')
-		return (ft_basenbr(va_arg(ap, unsigned int), DCML));
+		return (ft_basenbr(va_arg(ap, unsigned int), DCML, 0));
 	else if (fmt == 'p')
-		return (ft_putptr(va_arg(ap, size_t), HEXL));
+		return (ft_basenbr(va_arg(ap, size_t), HEXL, 1));
 	else
 		return (write(1, &fmt, 1));
 }
@@ -41,7 +81,7 @@ int	ft_printf(const char *fmt, ...)
 	va_start(ap, fmt);
 	while (fmt[i])
 	{
-		if (fmt[i] == '%' && ft_strchr(FRMT, fmt[i + 1]))
+		if (fmt[i] == '%')
 		{
 			ret += ft_parsef(fmt[i + 1], ap);
 			i += 2;
@@ -52,9 +92,13 @@ int	ft_printf(const char *fmt, ...)
 	va_end(ap);
 	return (ret);
 }
-/*
+
+#include <stdio.h>
+#include <termios.h>
+#include <stdlib.h>
 int main(void)//input version
 {
+
     char c = 'H';
     char *s = "testString";
     int n = -1;
@@ -62,7 +106,7 @@ int main(void)//input version
     void *p = &n;
     char format;
 
-    #include <termios.h>
+
     // Save the terminal settings
     struct termios old_settings, new_settings;
     tcgetattr(STDIN_FILENO, &old_settings);
@@ -135,4 +179,43 @@ printf(" - %d char - ft_printf\n\n", ft_printf("%%"));
     tcsetattr(STDIN_FILENO, TCSANOW, &old_settings);
     return (0);
 }
+
+
+/*
+Initial Call:
+
+n = 42, base_len is the length of the string "0123456789".
+n is less than base_len, so it proceeds to the write statement.
+The character at index 42 % 10 (the remainder when dividing 42 by 10) is '2', 
+so write(1, &base[42 % 10], 1) writes '2' to the standard output.
+The function returns count + 1 since one character was written.
+Return to the Previous Call (from the base case):
+
+The count from the base case is added to the previous count.
+At this point, count is still 1.
+Returning from Recursive Call:
+
+The count from the recursive call is added to the previous count.
+The recursive call is ft_basenbr(42 / 10, "0123456789", 0).
+This recursive call is essentially converting the number 42 / 10 = 4 to base 10.
+Recursive Call for 4:
+
+n = 4, base_len is the length of the string "0123456789".
+n is less than base_len, so it proceeds to the write statement.
+The character at index 4 % 10 is '4', so write(1, &base[4 % 10], 1) writes '4' 
+to the standard output.
+The function returns count + 1 since one character was written.
+Return to Previous Call (from the recursive call):
+
+The count from the recursive call is added to the previous count.
+At this point, count is 2.
+Final Result:
+
+The final result returned to main is 2. The base 10 representation of 
+42 is "42", and two characters were written.
+This process continues until all recursive calls have been completed, and the 
+final result is the total count of characters written. It's essential to 
+understand that each recursive call works on a smaller part of the problem 
+until it reaches a base case, and then the results are combined as the recursion 
+unwinds.
 */

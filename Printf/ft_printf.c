@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:33:46 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/04 00:19:15 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/04 00:35:36 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	ft_parsef(char fmt, va_list ap)
 	else if (fmt == 's')
 		return (ft_putstr(va_arg(ap, char *)));
 	else if (fmt == 'd' || fmt == 'i')
-		return (ft_basenbr(1, va_arg(ap, int), DCML));
+		return (ft_basenbr(va_arg(ap, int), DCML));
 	else if (fmt == 'x')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), HEXL));
+		return (ft_basenbr(va_arg(ap, unsigned int), HEXL));
 	else if (fmt == 'X')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), HEXU));
+		return (ft_basenbr(va_arg(ap, unsigned int), HEXU));
 	else if (fmt == 'u')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), DCML));
+		return (ft_basenbr(va_arg(ap, unsigned int), DCML));
 	else if (fmt == 'p')
 		return (ft_putptr(va_arg(ap, size_t), HEXL));
 	else

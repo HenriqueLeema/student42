@@ -22,12 +22,11 @@
 # define HEXU "0123456789ABCDEF"
 # define FRMT "cspdiuxX%"
 
-char	*ft_strchr(const char *s, int c);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putptr(size_t ptr, const char *base);
-int		ft_basenbr(int fd, size_t n, const char *base);
-int		ft_parsef(char function, va_list ap);
+int		ft_basenbr(size_t n, const char *base);
 int		ft_printf(const char *fmt, ...);
+char	*ft_strchr(const char *s, int c);
 
 #endif

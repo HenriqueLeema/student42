@@ -15,19 +15,20 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
 # include "ft_printf.h"
-
-# define DCML "0123456789"
-# define HEXL "0123456789abcdef"
-# define HEXU "0123456789ABCDEF"
-# define FRMT "cspdiuxX%"
 
 char	*ft_strchr(const char *s, int c);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
-int		ft_putptr(size_t ptr, const char *base);
-int		ft_basenbr(int fd, size_t n, const char *base);
-int		ft_parsef(char function, va_list ap);
-int		ft_printf(const char *fmt, ...);
+int		ft_putptr(void *nbr);
+int		ft_putnbr(int nbr);
+int		ft_putunbr(unsigned int nbr);
+int		ft_puthex(unsigned int nbr, int is_uppercase);
+int		ft_printf(const char *format, ...);
+int		ft_check(const char *fmt, int i, va_list ap);
 
 #endif

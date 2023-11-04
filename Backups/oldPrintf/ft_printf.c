@@ -6,48 +6,53 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:33:46 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/04 00:19:15 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/03 00:11:11 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_parsef(char fmt, va_list ap)
+int	ft_check(const char *fmt, int i, va_list ap)
 {
-	if (fmt == 'c')
+	if (fmt[i + 1] == 'c')
 		return (ft_putchar(va_arg(ap, int)));
-	else if (fmt == 's')
+	else if (fmt[i + 1] == 's')
 		return (ft_putstr(va_arg(ap, char *)));
-	else if (fmt == 'd' || fmt == 'i')
-		return (ft_basenbr(1, va_arg(ap, int), DCML));
-	else if (fmt == 'x')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), HEXL));
-	else if (fmt == 'X')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), HEXU));
-	else if (fmt == 'u')
-		return (ft_basenbr(1, va_arg(ap, unsigned int), DCML));
-	else if (fmt == 'p')
-		return (ft_putptr(va_arg(ap, size_t), HEXL));
+	else if (fmt[i + 1] == 'p')
+		return (ft_putptr(va_arg(ap, void *)));
+	else if (fmt[i + 1] == 'd' || fmt[i + 1] == 'i')
+		return (ft_putnbr(va_arg(ap, int)));
+	else if (fmt[i + 1] == 'u')
+		return (ft_putunbr(va_arg(ap, unsigned int)));
+	else if (fmt[i + 1] == 'x' || fmt[i + 1] == 'X')
+		return (ft_puthex(va_arg(ap, unsigned int), fmt[i + 1] == 'X'));
+	else if (fmt[i + 1] == '%')
+		return (ft_putchar('%'));
 	else
-		return (write(1, &fmt, 1));
+		return (0);
 }
 
-int	ft_printf(const char *fmt, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
+	int		i;
+	int		ret;
 
-	auto int ret = 0;
-	auto int i = 0;
-	va_start(ap, fmt);
-	while (fmt[i])
+	i = 0;
+	ret = 0;
+	va_start(ap, format);
+	while (format[i] != '\0')
 	{
-		if (fmt[i] == '%' && ft_strchr(FRMT, fmt[i + 1]))
+		if (format[i] == '%' && ft_strchr("cspdiuxX%", format[i + 1]))
 		{
-			ret += ft_parsef(fmt[i + 1], ap);
+			ret += ft_check(format, i, ap);
 			i += 2;
 		}
 		else
-			ret += ft_putchar(fmt[i++]);
+		{
+			ret += ft_putchar(format[i]);
+			i++;
+		}
 	}
 	va_end(ap);
 	return (ret);
@@ -57,7 +62,7 @@ int main(void)//input version
 {
     char c = 'H';
     char *s = "testString";
-    int n = -1;
+    int n = -8;
     unsigned int u = 12345;
     void *p = &n;
     char format;

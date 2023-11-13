@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:17:55 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/13 21:24:53 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/13 22:34:02 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ char	*get_next_line(int fd)
         }
     }
     else
-        fprintf(stderr, "Usage: %s <file1> <file2> ... <fileN>\n", argv[0]);
+        fprintf(stderr, "Wrong call! Try: %s file1 file2 file3 ...\n", argv[0]);
     return 0;
 } */

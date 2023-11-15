@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:17:55 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/13 22:34:02 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:51:04 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*parse_line(char *new_line, char *buffer, int buff_size, int *line_len)
 	return (new_line);
 }
 
-char	*read_bf(int fd, char buffer[FOPEN_MAX][BUFFER_SIZE + 1], int *sz_bf)
+char	*read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
 {
 	auto int flag = 1;
 	auto int size_line = 0;
@@ -74,7 +74,7 @@ char	*get_next_line(int fd)
 	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
 
 	auto int sz_bf = 0;
-	if ((fd < 0 || fd > FOPEN_MAX) || !BUFFER_SIZE)
+	if ((fd < 0 || fd > FOPEN_MAX))
 		return (NULL);
 	while (buffer[fd][sz_bf])
 		sz_bf++;

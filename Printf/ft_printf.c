@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:33:46 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/04 19:44:41 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/15 19:00:52 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	ft_printf(const char *fmt, ...)
 	return (ret);
 }
 
+/*
 #include <stdio.h>
 #include <termios.h>
 #include <stdlib.h>
@@ -107,7 +108,7 @@ int main(void)//input version
     char format;
 
 
-    // Save the terminal settings
+    // Save terminal settings
     struct termios old_settings, new_settings;
     tcgetattr(STDIN_FILENO, &old_settings);
     new_settings = old_settings;
@@ -178,44 +179,4 @@ printf(" - %d char - ft_printf\n\n", ft_printf("%%"));
     }
     tcsetattr(STDIN_FILENO, TCSANOW, &old_settings);
     return (0);
-}
-
-
-/*
-Initial Call:
-
-n = 42, base_len is the length of the string "0123456789".
-n is less than base_len, so it proceeds to the write statement.
-The character at index 42 % 10 (the remainder when dividing 42 by 10) is '2', 
-so write(1, &base[42 % 10], 1) writes '2' to the standard output.
-The function returns count + 1 since one character was written.
-Return to the Previous Call (from the base case):
-
-The count from the base case is added to the previous count.
-At this point, count is still 1.
-Returning from Recursive Call:
-
-The count from the recursive call is added to the previous count.
-The recursive call is ft_basenbr(42 / 10, "0123456789", 0).
-This recursive call is essentially converting the number 42 / 10 = 4 to base 10.
-Recursive Call for 4:
-
-n = 4, base_len is the length of the string "0123456789".
-n is less than base_len, so it proceeds to the write statement.
-The character at index 4 % 10 is '4', so write(1, &base[4 % 10], 1) writes '4' 
-to the standard output.
-The function returns count + 1 since one character was written.
-Return to Previous Call (from the recursive call):
-
-The count from the recursive call is added to the previous count.
-At this point, count is 2.
-Final Result:
-
-The final result returned to main is 2. The base 10 representation of 
-42 is "42", and two characters were written.
-This process continues until all recursive calls have been completed, and the 
-final result is the total count of characters written. It's essential to 
-understand that each recursive call works on a smaller part of the problem 
-until it reaches a base case, and then the results are combined as the recursion 
-unwinds.
-*/
+}*/

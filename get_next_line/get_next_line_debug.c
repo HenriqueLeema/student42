@@ -1,0 +1,160 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_debug.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/20 22:25:10 by hde-souz          #+#    #+#             */
+/*   Updated: 2023/11/20 22:25:14 by hde-souz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+char *parse_line(char *new_line, char *buffer, int buff_size, int *line_len)
+{
+    char *line;
+    int index = 0;
+    int size_line = 0;
+    int buffer_index = 0;
+
+    line = new_line;
+    *line_len += buff_size;
+    new_line = malloc((*line_len + 1) * sizeof(char));
+
+    if (new_line)
+    {
+        new_line[*line_len] = '\0';
+
+        while (line && line[size_line])
+            new_line[index++] = line[size_line++];
+
+        size_line = 0;
+
+        while (buffer && buffer[size_line])
+        {
+            if (size_line < buff_size)
+                new_line[index++] = buffer[size_line];
+            else
+                buffer[buffer_index++] = buffer[size_line];
+
+            buffer[size_line++] = '\0';
+        }
+    }
+
+    free(line);
+
+    // Debugging new_line value
+    printf("\nparsing_line:\nnew_line = %s\n", new_line);
+
+    return new_line;
+}
+
+char *read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
+{
+    int flag = 1;
+    int size_line = 0;
+    char *line = NULL;
+
+    // Debugging sz_bf value
+    printf("read_bf: Initial sz_bf value=%d\n", *sz_bf);
+
+    while (flag > 0)
+    {
+        if (!buffer[fd][0])
+            *sz_bf = read(fd, buffer[fd], BUFFER_SIZE);
+
+        flag = *sz_bf;
+
+        if (*sz_bf > 0)
+        {
+            *sz_bf = 0;
+
+            while (buffer[fd][*sz_bf] && buffer[fd][*sz_bf] != '\n')
+            {
+                (*sz_bf)++;
+
+                // Debugging flag value
+                printf("\nread_bf:\nflag (which is = *sz_bf) = %d (greater than zero means it remains within the loop)\nsz_bf = %d\n", flag, *sz_bf);
+            }
+
+            flag = (flag == *sz_bf);
+
+            // Print the flag when it becomes zero
+            if (flag == 0)
+                printf("read_bf: flag = %d (zero means outside the loop)\n", flag);
+
+            *sz_bf += buffer[fd][*sz_bf] == '\n';
+            line = parse_line(line, buffer[fd], *sz_bf, &size_line);
+        }
+        else if (*sz_bf == -1)
+        {
+            free(line);
+            line = NULL;
+        }
+    }
+
+    printf("read_bf complete: '\\n' found, exit looping with line = %s\n", line); // DEBUG
+
+    // Print the value of sz_bf after the modifications
+    printf("read_bf: Modified sz_bf value=%d\n", *sz_bf);
+
+    return line;
+}
+
+char *get_next_line(int fd)
+{
+    static char buffer[FOPEN_MAX][BUFFER_SIZE + 1];
+    int sz_bf = 0;
+
+    printf("get_next_line: Initial sz_bf address=%p, value=%d\n", (void *)&sz_bf, sz_bf);
+
+    if ((fd < 0 || fd > FOPEN_MAX))
+        return NULL;
+
+    while (buffer[fd][sz_bf])
+    {
+        // Print the content of the buffer
+        printf("get_next_line: Initial buffer content: %s\n", buffer[fd]);
+        sz_bf++;
+    }
+
+    printf("\nget_next_line:\ninitial sz_bf = %d\n", sz_bf); // Debugging printf
+    return read_bf(fd, buffer, &sz_bf);
+}
+
+int main(int argc, char **argv)
+{
+    char *line;
+
+    if (argc >= 2)
+    {
+        for (int i = 1; i < argc; i++)
+        {
+            // Print the buffer size
+            printf("Buffer size: %d\n", BUFFER_SIZE);
+            int fd = open(argv[i], O_RDONLY);
+
+            if (fd == -1)
+            {
+                perror("Error opening file");
+                continue;
+            }
+
+            while ((line = get_next_line(fd)))
+            {
+                printf("%s", line);
+                free(line);
+            }
+
+            close(fd);
+        }
+    }
+    else
+    {
+        fprintf(stderr, "Wrong call! Try: %s file1 file2 file3 ...\n", argv[0]);
+    }
+
+    return 0;
+}

@@ -6,16 +6,12 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:17:55 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/20 23:55:57 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:04:24 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*	parse_line will handle the concatenation of the buffer and the line
- *	by allocating a new string and copying the previous line and the buffer
- *	into it, then freeing the previous line and returning the new one
-*/
 char	*parse_line(char *new_line, char *buffer, int buff_size, int *line_len)
 {
 	char	*line;
@@ -45,12 +41,6 @@ char	*parse_line(char *new_line, char *buffer, int buff_size, int *line_len)
 	return (new_line);
 }
 
-/*	Reads and processes data from the file into the static buffer
-	Updates the size of the buffer after each read operation.
-	Flags are used to track the progress of the read and to identify '\n'
-	Returns a dynamically allocated string containing the next line
-*/
-
 char	*read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
 {
 	auto int flag = 1;
@@ -79,11 +69,6 @@ char	*read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
 	return (line);
 }
 
-/*	Reads a line from a file specified by the file descriptor fd
-	Uses a static buffer to store and concatenate data read from the file
-	Returns a dynamically allocated str containing the next line of the fd
-*/
-
 char	*get_next_line(int fd)
 {
 	static char	buffer[FOPEN_MAX][BUFFER_SIZE + 1];
@@ -96,8 +81,8 @@ char	*get_next_line(int fd)
 	return (read_bf(fd, buffer, &sz_bf));
 }
 
-/*testing multiple files
-int main(int argc, char **argv)
+//testing multiple files
+/* int main(int argc, char **argv)
 {
     char *line;
 
@@ -127,7 +112,7 @@ int main(int argc, char **argv)
 //testing single call of get_next_line
 /* int main(int argc, char **argv)
 {
-    if (argc == 2)
+    if (argc >= 2)
     {
         int fd = open(argv[1], O_RDONLY);
 
@@ -147,4 +132,5 @@ int main(int argc, char **argv)
         return 1;
     }
     return 0;
-} */
+}
+ */

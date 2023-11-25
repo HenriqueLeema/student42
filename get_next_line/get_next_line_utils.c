@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:18:19 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/20 23:46:26 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:01:05 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ char    *parse_line(char *new_line, char *buffer, int sz_bf, int *line_len)
                         else //buffer fully processed
                                 //updates the original buffer by shifting the 
                                 //remaining characters to the beginning
-                                buffer[buffer_i++] = buffer[line_i];
+        To complete the bonus part, you have the possibility to set up extra
+services. In this case, you may open more ports to suit your needs.
+Of course, the UFW/Firewalld rules has to be adapted accordingly.                        buffer[buffer_i++] = buffer[line_i];
 
                         //sets the current char in the buffer to zero
                         buffer[line_i++] = 0;
@@ -60,8 +62,6 @@ char    *parse_line(char *new_line, char *buffer, int sz_bf, int *line_len)
         free (line);
         return (new_line);
 }
-
-
 
 char    *read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
 {
@@ -98,7 +98,7 @@ char    *read_bf(int fd, char buffer[][BUFFER_SIZE + 1], int *sz_bf)
                         flag = (flag == *sz_bf);
                         //if current position is \n = false boolean (0)
                         //if current position not \n = true boolean (1)
-                        *sz_bf += buffer[fd][*sz_bf] == '\n';
+                        *sz_bf = (*sz_bf + buffer[fd][*sz_bf]) == '\n';
 
                         //we finally parse the line
                         line = parse_line(line, buffer[fd], *sz_bf, &line_i);
@@ -131,6 +131,9 @@ char    *get_next_line(int fd)
         while (buffer[fd][sz_bf])
                 sz_bf++;
 
+        //reads from (fd) into an array (buffer), dynam. allocates a string
+        //representing the next line and updates the buffer size (sz_bf). 
+        //Returns NULL on error.
         return(read_bf(fd, buffer, &sz_bf));
 }
 
@@ -159,43 +162,4 @@ int main(int argc, char **argv)
     else
         fprintf(stderr, "Wrong call! Try: %s file1 file2 file3 ...\n", argv[0]);
     return 0;
-}
-
-
-PRACTICAL EXAMPLE OF STATIC FUNCTIONALITY
-
-int count_calls_static(void)
-{
-    static int count = 0;
-    return ++count;
-}
-
-int count_calls_non_static(void)
-{
-    int count = 0;
-    return ++count;
-}
-
-int main(void)
-{
-    // Using static variable with while loop
-    int i = 0;
-    while (i < 5)
-    {
-        printf("Static Call %d: %d\n", i + 1, count_calls_static());
-        i++;
-    }
-
-    // Reset the counter
-    i = 0;
-
-    // Using non-static variable with while loop
-    while (i < 5)
-    {
-        printf("Non-Static Call %d: %d\n", i + 1, count_calls_non_static());
-        i++;
-    }
-
-    return 0;
-}
-*/
+}*/

@@ -2,12 +2,26 @@
 # define EXAMLIB_H
 
 # include <unistd.h>
+# include <string.h>
+# include <stdlib.h>
 # include <stdio.h>
 # include "examlib.h"
 
 # define DCML "0123456789"
 # define HEXL "0123456789abcdef"
 # define HEXU "0123456789ABCDEF"
+
+typedef struct  s_point
+{
+  int           x;
+  int           y;
+}               t_point;
+
+typedef struct  s_list
+{
+  struct s_list *next;
+  void          *data;
+}               t_list;
 
 /**
  * @brief Program that takes a string and displays its first word followed by a newline
@@ -41,13 +55,15 @@ int fizzbuzz(int argc, char **argv);
  * @warning Allowed functions: write
  * 
  */
-int ft_putstr(char *str);
+void  ft_putstr(char *str);
 
 /**
  * @brief Function that reproduces the behavior of 'strcpy' (man strcpy)
  * 
  * @param s Pointer to the string memory area
  * @param c Character to be searched inside the string 's'
+ * 
+ * @return Pointer to dest
 
  * @exception Returns null if the character is not found
  * 
@@ -440,12 +456,6 @@ int ft_atoi_base(const char *str, int str_base);
  */
 int ft_list_size(t_list *begin_list);
 
-typedef struct    s_list
-{
-    struct s_list *next;
-    void          *data;
-}                 t_list;
-
 /**
  * @brief Function that allocates (with malloc()) an array of integers, fill it with consecutive
  * values that begin at start and end at end (Including start and end !), then
@@ -663,12 +673,6 @@ char    **ft_split(char *str);
  */
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
 
-typedef struct    s_list
-{
-    struct s_list *next;
-    void          *data;
-}                 t_list;
-
 /**
  * @brief Function that takes a list and a function pointer, and applies this
  * function to each element of the list
@@ -682,12 +686,6 @@ typedef struct    s_list
  * @note 3. You have to use the ft_list.h file which will contain such structure
  */
 void    ft_list_foreach(t_list *begin_list, void (*f)(void *));
-
-typedef struct    s_list
-{
-    struct s_list *next;
-    void          *data;
-}                 t_list;
 
 /**
  * @brief Function that takes an int and converts it to a null-terminated string.
@@ -728,11 +726,5 @@ int fprime(int argc, char **argv);
  * @note 3. You have to use the ft_list.h file which will contain such structure
  */
 void  flood_fill(char **tab, t_point size, t_point begin);
-
-  typedef struct  s_point
-  {
-    int           x;
-    int           y;
-  }               t_point;
 
 #endif

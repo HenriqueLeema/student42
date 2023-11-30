@@ -33,7 +33,7 @@ typedef struct  s_list
  * start/end of the string
  * 
  */
-int first_word(int argc, char **argv);
+int first_word();
 
 /**
  * @brief Program that prints numbers from 1 to 100, each separated by a newline
@@ -45,7 +45,7 @@ int first_word(int argc, char **argv);
  * @note 3. Multiple of 3 and 5: FizzBuzz
  * 
  */
-int fizzbuzz(int argc, char **argv);
+int fizzbuzz();
 
 /**
  * @brief Function that displays a string on the standard output

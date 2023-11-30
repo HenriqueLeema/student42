@@ -6,8 +6,10 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:08:31 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 20:08:32 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/30 21:10:34 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());

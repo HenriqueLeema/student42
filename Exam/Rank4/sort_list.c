@@ -6,8 +6,10 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:09:24 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 20:09:25 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:51:34 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
+
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int));

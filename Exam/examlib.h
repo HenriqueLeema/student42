@@ -599,4 +599,157 @@ int str_capitalizer(int argc, char **argv);
  */
 int tab_mult(int argc, char **argv);
 
+/**
+ * @brief This function must sort the list given as a parameter, using the function
+ * pointer cmp to select the order to apply, and returns a pointer to the
+ * first element of the sorted list.
+ * 
+ * @warning Allowed functions: none
+ * @warning Expected files   : sort_list.c
+ * 
+ * @note 1. Duplications must remain
+ * @note 2. Inputs will always be consistent
+ * @note 3. You must use the type t_list described in the file list.h
+ * that is provided to you. You must include that file
+ * (#include "list.h"), but you must not turn it in. We will use our own
+ * to compile your assignment
+ * @note 4. Functions passed as cmp will always return a value different from
+ * 0 if a and b are in the right order, 0 otherwise
+ */
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int));
+
+/**
+ * @brief This function must sort (in-place) the 'tab' int array, that contains exactly 'size'
+ * members, in ascending order
+ * 
+ * @warning Allowed functions: none
+ * 
+ * @note 1. Doubles must be preserved
+ * @note 2. Input is always coherent
+ */ 
+void sort_int_tab(int *tab, unsigned int size);
+
+/**
+ * @brief Program that takes a string and displays this string after rotating it
+ * one word to the left. Thus, the first word becomes the last, and others stay in the same order
+ * 
+ * @warning Allowed functions: write, malloc, free
+ * 
+ * @note 1. A "word" is defined as a part of a string delimited either by spaces/tabs, or
+ * by the start/end of the string
+ * @note 2. Words will be separated by only one space in the output
+ * @note 3. If there's less than one argument, the program displays a newline
+ */ 
+int rostring(int argc, char **argv);
+
+/**
+ * @brief Program that takes a string as a parameter, and prints its words in reverse order
+ * 
+ * @warning Allowed functions: write, malloc, free
+ * 
+ * @note 1. A "word" is defined as a part of a string delimited either by spaces/tabs, or
+ * by the start/end of the string
+ * @note 2. Words will be separated by only one space in the output
+ * @note 3. In the parameters that are going to be tested, there won't be any "additional"
+ * spaces (meaning that there won't be additionnal spaces at the beginning or at
+ * the end of the string, and words will always be separated by exactly one space)
+ */
+int rev_wstr(int argc, char **argv);
+
+/**
+ * @brief Function that takes a string, splits it into words, and returns them as
+ * a NULL-terminated array of strings
+ * 
+ * @warning Allowed functions: malloc
+ * 
+ * @note 1. A "word" is defined as a part of a string delimited either by spaces/tabs, or
+ * by the start/end of the string
+ */
+char    **ft_split(char *str);
+
+/**
+ * @brief Function called ft_list_remove_if that removes from the
+ * passed list any element the data of which is "equal" to the reference data
+ * 
+ * @warning Allowed functions: free
+ * @warning Expected files   : ft_list_foreach.c, ft_list.h
+ * 
+ * @note 1. cmp takes two void* and returns 0 when both parameters are equal
+ * @note 2. Check structure on examlib.h
+ * @note 3. You have to use the ft_list.h file which will contain such structure
+ */
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+
+typedef struct    s_list
+{
+    struct s_list *next;
+    void          *data;
+}                 t_list;
+
+/**
+ * @brief Function that takes a list and a function pointer, and applies this
+ * function to each element of the list
+ * 
+ * @warning Allowed functions: none
+ * @warning Expected files   : ft_list_foreach.c, ft_list.h
+ * 
+ * @note 1. The function pointed to by f will be used as follows:
+ * @note - (*f)(list_ptr->data);
+ * @note 2. Check structure on examlib.h
+ * @note 3. You have to use the ft_list.h file which will contain such structure
+ */
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *));
+
+typedef struct    s_list
+{
+    struct s_list *next;
+    void          *data;
+}                 t_list;
+
+/**
+ * @brief Function that takes an int and converts it to a null-terminated string.
+ * The function returns the result in a char array that you must allocate
+ * 
+ * @warning Allowed functions: malloc
+ * 
+ */
+char	*ft_itoa(int nbr);
+
+/**
+ * @brief Program that takes a positive int and displays its prime factors on the
+ * standard output, followed by a newline
+ * 
+ * @warning Allowed functions: printf, atoi
+ * @warning Expected files   : ft_list_foreach.c, ft_list.h
+ * 
+ * @note 1. Factors must be displayed in ascending order and separated by '*', so that
+ * the expression in the output gives the right result
+ * @note 2. If the number of parameters is not 1, simply display a newline
+ * @note 3. The input, when there is one, will be valid
+ */
+int fprime(int argc, char **argv);
+
+/**
+ * @brief Function that takes a char ** as a 2-dimensional array of char, a
+ * t_point as the dimensions of this array and a t_point as the starting point.
+ * Starting from the given 'begin' t_point, this function fills an entire zone
+ * by replacing characters inside with the character 'F'. A zone is an group of
+ * the same character delimitated horizontally and vertically by other characters
+ * or the array boundry
+ * 
+ * @warning Allowed functions: none
+ * @warning Expected files   : *.c, *.h
+ * 
+ * @note 1. The flood_fill function won't fill diagonally
+ * @note 2. Check structure on examlib.h
+ * @note 3. You have to use the ft_list.h file which will contain such structure
+ */
+void  flood_fill(char **tab, t_point size, t_point begin);
+
+  typedef struct  s_point
+  {
+    int           x;
+    int           y;
+  }               t_point;
+
 #endif

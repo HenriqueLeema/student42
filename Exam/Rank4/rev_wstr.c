@@ -6,8 +6,10 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:08:48 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 20:08:48 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/30 21:10:46 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
+
+int rev_wstr(int argc, char **argv);

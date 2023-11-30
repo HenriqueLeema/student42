@@ -6,13 +6,13 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:09:59 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 23:34:41 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:36:52 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
 
-/*Function description*/ int first_word();
+/*FIRST_WORD*/ int first_word();
 
 int main(int argc, char **argv)
 {

@@ -28,18 +28,11 @@ int template(int argc, char **argv);
 
 /**
  * @brief Program that takes a string and displays its first word followed by a newline
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
- * @return INT » 0
- * 
- * @exception If the number of parameters is not 1, or if there are no words
- * @exception simply display a newline
- * 
+ *
  * @warning Allowed functions: write
  * 
- * @note A word is a section of string delimited by spaces/tabs or by the 
+ * @note 1. If the number of parameters is not 1, or if there are no words simply display a newline
+ * @note 2. A word is a section of string delimited by spaces/tabs or by the 
  * start/end of the string
  * 
  */
@@ -47,17 +40,12 @@ int first_word(int argc, char **argv);
 
 /**
  * @brief Program that prints numbers from 1 to 100, each separated by a newline
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
- * @return int 
- * 
+
  * @warning Allowed functions: write
  * 
- * @note Multiple of 3: Fizz
- * @note Multiple of 5: Buzz
- * @note Multiple of 3 and 5: FizzBuzz
+ * @note 1. Multiple of 3: Fizz
+ * @note 2. Multiple of 5: Buzz
+ * @note 3. Multiple of 3 and 5: FizzBuzz
  * 
  */
 int fizzbuzz(int argc, char **argv);
@@ -77,8 +65,7 @@ int ft_putstr(char *str);
  * 
  * @param s Pointer to the string memory area
  * @param c Character to be searched inside the string 's'
- * 
- * @return char* » pointer to the destination string 'dest'
+
  * @exception Returns null if the character is not found
  * 
  * @warning Allowed functions: None
@@ -91,8 +78,6 @@ char    *ft_strcpy(char *s1, char *s2);
  * 
  * @param str The string to be measured
  * 
- * @return int » number of bytes in the string pointed to by 'str'
- * 
  * @warning Allowed functions: None
  * 
  */
@@ -104,8 +89,6 @@ int ft_strlen(char *str);
  * @param a Pointer to the first integer
  * @param b Pointer to the second integer
  * 
- * @return int
- * 
  * @warning Allowed functions: None
  * 
  */
@@ -113,9 +96,6 @@ int ft_strlen(char *str);
 
 /**
  * @brief Program that takes a string and display it repeating each alphabetical character as many times as its alphabetical index, followed by a newline
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
  * 
  * @warning Allowed functions: write
  * 
@@ -129,9 +109,6 @@ int repeat_alpha(int argc, char **argv);
 /**
  * @brief Program that takes a string, and displays the string in reverse followed by a newline
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @exception If the number of parameters is not 1, simply display a newline
  * 
  * @warning Allowed functions: write
@@ -142,31 +119,25 @@ int rev_print(int argc, char **argv);
 /**
  * @brief Program that takes a string and displays it, replacing each of its letters by the respective letter 13 spaces ahead in alphabetical order
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: write
  * 
- * @note As an example, 'z' becomes 'm' and 'Z' becomes 'M'
- * @note Case remains unaffected
- * @note The output will be followed by a newline
- * @note If the number of arguments is not 1, the program displays a newline
+ * @note 1. As an example, 'z' becomes 'm' and 'Z' becomes 'M'
+ * @note 2. Case remains unaffected
+ * @note 3. The output will be followed by a newline
+ * @note 4. If the number of arguments is not 1, the program displays a newline
  * 
  */
 int rot_13(int argc, char **argv);
 
 /**
  * @brief Program that takes a string and displays it, replacing each of its letters by the next one in alphabetical order
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
+
 * @warning Allowed functions: write
  * 
- * @note As an example, 'z' becomes 'm' and 'Z' becomes 'M'
- * @note Case remains unaffected
- * @note The output will be followed by a newline
- * @note If the number of arguments is not 1, the program displays a newline
+ * @note 1. As an example, 'z' becomes 'm' and 'Z' becomes 'M'
+ * @note 2. Case remains unaffected
+ * @note 3. The output will be followed by a newline
+ * @note 4. If the number of arguments is not 1, the program displays a newline
  * 
  */
 int rotone(int argc, char **argv);
@@ -182,8 +153,8 @@ another one (3rd argument)
  * 
  * @warning Allowed functions: write
  * 
- * @note If the number of arguments is not 3, simply display a newline
- * @note If the second argument is not contained in the first one (argv[1]), the program simply rewrites the string followed by a newline
+ * @note 1. If the number of arguments is not 3, simply display a newline
+ * @note 2. If the second argument is not contained in the first one (argv[1]), the program simply rewrites the string followed by a newline
  * 
  */
 int search_and_replace(int argc, char **argv);
@@ -191,13 +162,10 @@ int search_and_replace(int argc, char **argv);
 /**
  * @brief Program that takes a string and reverses the case of all its letters. Other characters remain unchanged
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: Missing
  * 
- * @note You must display the result followed by a '\n'
- * @note If the number of arguments is not 1, the program displays '\n'
+ * @note 1. You must display the result followed by a '\n'
+ * @note 2. If the number of arguments is not 1, the program displays '\n'
  * 
  */
 int ulstr(int argc, char **argv);
@@ -206,15 +174,12 @@ int ulstr(int argc, char **argv);
  * @brief Program that takes a string and displays this string after replacing each alphabetical character by the opposite alphabetical
 character, followed by a newline
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: write
  * 
- * @note 'a' becomes 'z', 'Z' becomes 'A'
- * @note 'd' becomes 'w', 'M' becomes 'N'
- * @note Case remains unaffected
- * @note If the number of arguments is not 1, the program displays only a newline
+ * @note 1. 'a' becomes 'z', 'Z' becomes 'A'
+ * @note 2. 'd' becomes 'w', 'M' becomes 'N'
+ * @note 3. Case remains unaffected
+ * @note 4. If the number of arguments is not 1, the program displays only a newline
  * 
  */
 int alpha_mirror(int argc, char **argv);
@@ -222,13 +187,10 @@ int alpha_mirror(int argc, char **argv);
 /**
  * @brief Program that takes a single string in lowerCamelCase format and converts it into a string in snake_case format
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: write, malloc, realloc
  * 
- * @note lowerCamelCase » each word begins with a capital letter except for the first one
- * @note snake_case » each word is in lowercase and separated by an underscore
+ * @note 1. lowerCamelCase » each word begins with a capital letter except for the first one
+ * @note 2. snake_case » each word is in lowercase and separated by an underscore
  */
 int camel_to_snake(int argc, char **argv);
 
@@ -241,11 +203,11 @@ int camel_to_snake(int argc, char **argv);
  * 
  * @warning Allowed functions: atoi, printf, write
  * 
- * @note The program must display the result of the requested arithmetic operation, followed by a newline
- * @note If the number of parameters is not 3, the program just displays a newline
- * @note You can assume the string have no mistakes or extraneous characters
- * @note Negative numbers, in input or output, will have one and only one leading '-'
- * @note The result of the operation fits in an int
+ * @note 1. The program must display the result of the requested arithmetic operation, followed by a newline
+ * @note 2. If the number of parameters is not 3, the program just displays a newline
+ * @note 3. You can assume the string have no mistakes or extraneous characters
+ * @note 4. Negative numbers, in input or output, will have one and only one leading '-'
+ * @note 5. The result of the operation fits in an int
  * 
  */
 int do_op(int argc, char **argv);
@@ -256,7 +218,8 @@ int do_op(int argc, char **argv);
  * @param str The string to convert
  * 
  * @warning Allowed functions: none
- * @warning It works much like the standard atoi(const char *str) function, see the man
+ * 
+ * @note It works much like the standard atoi(const char *str) function, see the man
  * 
  */
 int ft_atoi(char *str);
@@ -333,8 +296,8 @@ size_t	ft_strspn(const char *s, const char *accept);
  * 
  * @warning Allowed functions: none
  * 
- * @note The display will be followed by a '\n'
- * @note If the number of arguments is not 2, the program displays '\n'
+ * @note 1. The display will be followed by a '\n'
+ * @note 2. If the number of arguments is not 2, the program displays '\n'
  * 
  */
 int inter(int argc, char **argv);
@@ -344,6 +307,7 @@ int inter(int argc, char **argv);
  * characters that appear in both strings, in the order they appear in the first one
  * 
  * @return 1 if the given number is a power of 2, otherwise it returns 0
+ * 
  * @warning Allowed functions: none
  * 
  * @note If the number of arguments is not 2, the program displays '\n'
@@ -354,22 +318,16 @@ int	    is_power_of_2(unsigned int n);
 /**
  * @brief Program that takes a string and displays its last word followed by a '\n'
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: write
  * 
- * @note A word is a section of string delimited by spaces/tabs or by the start/end of the string
- * @note If the number of parameters is not 1, or there are no words, display a newline
+ * @note 1. A word is a section of string delimited by spaces/tabs or by the start/end of the string
+ * @note 2. If the number of parameters is not 1, or there are no words, display a newline
  * 
  */
 int last_word(int argc, char **argv);
 
 /**
  * @brief Function that returns the largest number found in an array
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
  * 
  * @return The largest number found in the array, or 0 if the array is empty
  * 
@@ -406,13 +364,10 @@ unsigned char	reverse_bits(unsigned char octet);
 /**
  * @brief Program that takes a single string in snake_case format and converts it into a string in lowerCamelCase format
  * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
  * @warning Allowed functions: malloc, free, realloc, write
  * 
- * @note lowerCamelCase » each word begins with a capital letter except for the first one
- * @note snake_case » each word is in lowercase and separated by an underscore
+ * @note 1. lowerCamelCase » each word begins with a capital letter except for the first one
+ * @note 2. snake_case » each word is in lowercase and separated by an underscore
  */
 int snake_to_camel(int argc, char **argv);
 
@@ -431,10 +386,10 @@ unsigned char	swap_bits(unsigned char octet);
  * 
  * @warning Allowed functions: write
  * 
- * @note The display will be in the order characters appear in the command line, and will be followed by a '\n'
- * @note If the number of arguments is not 2, the program displays '\n'
+ * @note 1. The display will be in the order characters appear in the command line, and will be followed by a '\n'
+ * @note 2. If the number of arguments is not 2, the program displays '\n'
  */
-int union(int argc, char **argv);
+int ft_union(int argc, char **argv);
 
 /**
  * @brief Program that takes two strings and checks whether it's possible to write the first string with characters from the second string,
@@ -442,9 +397,9 @@ int union(int argc, char **argv);
  * 
  * @warning Allowed functions: write
  * 
- * @note If it's possible, the program displays the string, followed by a '\n'
- * @note Otherwise it simply displays a '\n'
- * @note If the number of arguments is not 2, the program displays a '\n'
+ * @note 1. If it's possible, the program displays the string, followed by a '\n'
+ * @note 2. Otherwise it simply displays a '\n'
+ * @note 3. If the number of arguments is not 2, the program displays a '\n'
  */
 int wdmatch(int argc, char **argv);
 

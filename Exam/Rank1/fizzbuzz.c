@@ -6,11 +6,11 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:43:57 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/28 19:52:04 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:37:37 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../examlib.h"
 
 void putnbr(int n)
 {

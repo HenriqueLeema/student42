@@ -2,29 +2,12 @@
 # define EXAMLIB_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include "examlib.h"
 
 # define DCML "0123456789"
 # define HEXL "0123456789abcdef"
 # define HEXU "0123456789ABCDEF"
-
-/**
- * @file template.c
- * @brief template
- * 
- * @param argc Argument count (number of strings)
- * @param argv Argument vector (array of strings)
- * 
- * @return INT » template
- * 
- * @exception template
- * 
- * @warning template
- * 
- * @note template
- * 
- */
-int template(int argc, char **argv);
 
 /**
  * @brief Program that takes a string and displays its first word followed by a newline

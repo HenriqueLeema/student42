@@ -164,8 +164,8 @@ int search_and_replace(int argc, char **argv);
  * 
  * @warning Allowed functions: Missing
  * 
- * @note 1. You must display the result followed by a '\n'
- * @note 2. If the number of arguments is not 1, the program displays '\n'
+ * @note 1. You must display the result followed by a newline
+ * @note 2. If the number of arguments is not 1, the program displays newline
  * 
  */
 int ulstr(int argc, char **argv);
@@ -296,8 +296,8 @@ size_t	ft_strspn(const char *s, const char *accept);
  * 
  * @warning Allowed functions: none
  * 
- * @note 1. The display will be followed by a '\n'
- * @note 2. If the number of arguments is not 2, the program displays '\n'
+ * @note 1. The display will be followed by a newline
+ * @note 2. If the number of arguments is not 2, the program displays newline
  * 
  */
 int inter(int argc, char **argv);
@@ -310,13 +310,13 @@ int inter(int argc, char **argv);
  * 
  * @warning Allowed functions: none
  * 
- * @note If the number of arguments is not 2, the program displays '\n'
+ * @note If the number of arguments is not 2, the program displays newline
  * 
  */
 int	    is_power_of_2(unsigned int n);
 
 /**
- * @brief Program that takes a string and displays its last word followed by a '\n'
+ * @brief Program that takes a string and displays its last word followed by a newline
  * 
  * @warning Allowed functions: write
  * 
@@ -386,8 +386,8 @@ unsigned char	swap_bits(unsigned char octet);
  * 
  * @warning Allowed functions: write
  * 
- * @note 1. The display will be in the order characters appear in the command line, and will be followed by a '\n'
- * @note 2. If the number of arguments is not 2, the program displays '\n'
+ * @note 1. The display will be in the order characters appear in the command line, and will be followed by a newline
+ * @note 2. If the number of arguments is not 2, the program displays newline
  */
 int ft_union(int argc, char **argv);
 
@@ -397,10 +397,206 @@ int ft_union(int argc, char **argv);
  * 
  * @warning Allowed functions: write
  * 
- * @note 1. If it's possible, the program displays the string, followed by a '\n'
- * @note 2. Otherwise it simply displays a '\n'
- * @note 3. If the number of arguments is not 2, the program displays a '\n'
+ * @note 1. If it's possible, the program displays the string, followed by a newline
+ * @note 2. Otherwise it simply displays a newline
+ * @note 3. If the number of arguments is not 2, the program displays a newline
  */
 int wdmatch(int argc, char **argv);
+
+/**
+ * @brief Program that takes a positive integer as argument and displays the sum of all prime numbers inferior or equal to it followed by a newline
+ * 
+ * @warning Allowed functions: write, exit
+ * 
+ * @note 1. If the number of arguments is not 1, or the argument is not a positive number, just display 0 followed by a newline
+ */
+int add_prime_sum(int argc, char **argv);
+
+/**
+ * @brief Program that takes a string, and displays this string with exactly one
+ * space between words, with no spaces or tabs either at the beginning or the end,
+ * followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. A "word" is defined as a part of a string delimited either by spaces/tabs, or by the start/end of the string
+ * @note 2. If the number of arguments is not 1, or if there are no words to display, the program displays a newline
+ */
+int epur_str(int argc, char **argv);
+
+/**
+ * @brief Program that takes a string and displays it with exactly three spaces
+ * between each word, with no spaces or tabs either at the beginning or the end,
+ * followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. A "word" is defined as a part of a string delimited either by spaces/tabs, or by the start/end of the string
+ * @note 2. If the number of arguments is not 1, or if there are no words to display, the program displays a newline
+ */
+int expand_str(int argc, char **argv);
+
+/**
+ * @brief Function that converts the string argument str (base N <= 16)
+ * to an integer (base 10) and returns it
+ * 
+ * @warning Allowed functions: none
+ * 
+ * @note 1. The characters recognized in the input are: 0123456789abcdef. Those are, of course, to be trimmed according to the requested base. For example, base 4 recognizes "0123" and base 16 recognizes "0123456789abcdef"
+ * @note 2. Uppercase letters must also be recognized: "12fdb3" is the same as "12FDB3"
+ * @note 3. Minus signs ('-') are interpreted only if they are the first character of the string
+ */
+int ft_atoi_base(const char *str, int str_base);
+
+/**
+ * @brief Function that returns the number of elements in the linked list that's passed to it
+ * 
+ * @warning Allowed functions: none
+ * 
+ * @note Check structure on examlib.h
+ */
+int ft_list_size(t_list *begin_list);
+
+typedef struct    s_list
+{
+    struct s_list *next;
+    void          *data;
+}                 t_list;
+
+/**
+ * @brief Function that allocates (with malloc()) an array of integers, fill it with consecutive
+ * values that begin at start and end at end (Including start and end !), then
+ * return a pointer to the first value of the array
+ * 
+ * @warning Allowed functions: malloc
+ * 
+ * @note 1. With (1, 3) you will return an array containing 1, 2 and 3
+ * @note 2. With (-1, 2) you will return an array containing -1, 0, 1 and 2
+ * @note 3. With (0, 0) you will return an array containing 0
+ * @note 4. With (0, -3) you will return an array containing 0, -1, -2 and -3
+ */
+int     *ft_range(int start, int end);
+
+/**
+ * @brief Function that allocates (with malloc()) an array of integers, fill it with consecutive
+ * values that begin at end and end at start (Including start and end !), then
+ * return a pointer to the first value of the array
+ * 
+ * @warning Allowed functions: malloc
+ * 
+ * @note 1. With (1, 3) you will return an array containing 3, 2 and 1
+ * @note 2. With (-1, 2) you will return an array containing 2, 1, 0 and -1
+ * @note 3. With (0, 0) you will return an array containing 0
+ * @note 4. With (0, -3) you will return an array containing -3, -2, -1 and 0
+ */
+int     *ft_rrange(int start, int end);
+
+/**
+ * @brief Program named hidenp that takes two strings and displays 1
+ * followed by a newline if the first string is hidden in the second one,
+ * otherwise displays 0 followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. Let s1 and s2 be strings. We say that s1 is hidden in s2 if it's possible to
+ * find each character from s1 in s2, in the same order as they appear in s1.
+ * Also, the empty string is hidden in any string
+ * @note 2. If the number of parameters is not 2, the program displays a newline
+ */
+int hidenp(int argc, char **argv);
+
+/**
+ * @brief Function who takes two unsigned int as parameters and returns the
+ * computed LCM of those parameters. LCM (Lowest Common Multiple) of two non-zero integers is the smallest postive
+ * integer divisible by the both integers
+ * 
+ * @warning Allowed functions: none
+ * 
+ * @note - A LCM can be calculated in two ways:
+ * @note 1. You can calculate every multiples of each integers until you have a common
+ * multiple other than 0
+ * @note 2. You can use the HCF (Highest Common Factor) of these two integers and
+ * calculate as follows:
+ * @note - LCM(x, y) = | x * y | / HCF(x, y)
+ * @note - | x * y | means "Absolute value of the product of x by y"
+ * @note 3. If at least one integer is null, LCM is equal to 0
+ */
+unsigned int    lcm(unsigned int a, unsigned int b);
+
+/**
+ * @brief Program that displays the number of arguments passed to it, followed by
+ * a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note If there are no arguments, just display a 0 followed by a newline
+ */
+int paramsum(int argc, char **argv);
+
+/**
+ * @brief Program that takes two strings representing two strictly positive
+ * integers that fit in an int
+ * 
+ * @warning Allowed functions: printf, atoi, malloc, free
+ * 
+ * @note 1. Display their highest common denominator followed by a newline (It's always a
+ * strictly positive integer)
+ * @note 2. If the number of parameters is not 2, display a newline
+ */
+int pgcd(int argc, char **argv);
+
+/**
+ * @brief Program that takes a positive (or zero) number expressed in base 10,
+ * and displays it in base 16 (lowercase letters) followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note If the number of parameters is not 1, the program displays a newline
+ */
+int print_hex(int argc, char **argv);
+
+/**
+ * @brief Program that takes one or more strings and, for each argument, puts
+ * the last character that is a letter of each word in uppercase and the rest
+ * in lowercase, then displays the result followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. A word is a section of string delimited by spaces/tabs or the start/end of the
+ * string. If a word has a single letter, it must be capitalized
+ * @note 2. A letter is a character in the set [a-zA-Z]
+ * @note 3. If there are no parameters, display a newline
+ */
+int rstr_capitalizer(int argc, char **argv);
+
+/**
+ * @brief Program that takes one or several strings and, for each argument,
+ * capitalizes the first character of each word (If it's a letter, obviously),
+ * puts the rest in lowercase, and displays the result on the standard output,
+ * followed by a newline
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. A word is a section of string delimited by spaces/tabs or the start/end of the
+ * string. If a word has a single letter, it must be capitalized
+ * @note 2. If there are no parameters/arguments, display a newline
+ */
+int str_capitalizer(int argc, char **argv);
+
+/**
+ * @brief Program that displays a number's multiplication table
+ * 
+ * @warning Allowed functions: write
+ * 
+ * @note 1. The parameter will always be a strictly positive number that fits in an int,
+ * and said number times 9 will also fit in an int
+ * @note 2. If there are no parameters/arguments, display a newline
+ * @note 3. Example:
+ * @note - ./tab_mult 9
+ * @note - 1 x 9 = 9
+ * @note - 2 x 9 = 18
+ * @note - and so on...
+ */
+int tab_mult(int argc, char **argv);
 
 #endif

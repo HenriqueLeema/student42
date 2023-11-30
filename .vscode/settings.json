@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "examlib.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

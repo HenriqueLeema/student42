@@ -2,5 +2,17 @@
     "files.associations": {
         "examlib.h": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+
+"editor.tabSize": 8,
+"editor.insertSpaces": true,
+"editor.fontFamily": "JetBrains Mono",
+"editor.fontLigatures": true,
+"editor.rulers":[
+    {
+        "column": 80,
+        "color": "#292727b9",
+        "style": "dotted"
+    }
+],
 }

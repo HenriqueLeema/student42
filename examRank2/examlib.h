@@ -103,7 +103,7 @@ int ft_strlen(char *str);
  * @note 3. If the number of arguments is not 1, just display a newline
  * 
  */
-int repeat_alpha(int argc, char **argv);
+void repeat_alpha(char *str);
 
 /**
  * @brief Program that takes a string, and displays the string in reverse followed by a newline

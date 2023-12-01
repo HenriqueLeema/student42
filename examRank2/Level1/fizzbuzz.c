@@ -6,26 +6,16 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:43:57 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 23:35:37 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:20:09 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
 
-/*FIZZBUZZ*/ int fizzbuzz();
-
-void putnbr(int n)
-{
-    char str[10] = "0123456789";
-
-    if (n > 9)
-        putnbr(n / 10);
-    write(1, &str[n % 10], 1);
-}
-
-int main(void)
+void    fizzbuzz()
 {
     auto int i = 0;
+    char str[10] = "0123456789";
 
     while (i <= 100)
     {
@@ -36,8 +26,18 @@ int main(void)
         else if (i % 5 == 0)
             write(1, "buzz", 4);
         else
-            putnbr(i);
+        {
+            if (i > 9)
+                write(1, &str[i / 10], 1);
+            write(1, &str[i % 10], 1);
+        }
         i++;
         write(1, "\n", 1);
     }
+}
+
+int main(void)
+{
+    fizzbuzz();
+    return (0);
 }

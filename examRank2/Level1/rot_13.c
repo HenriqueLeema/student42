@@ -6,10 +6,29 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:45:18 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/12/01 16:38:45 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/01 20:25:42 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
 
-int rot_13(int argc, char **argv);
+void	rot_13(char *s)
+{
+	auto int i = 0;
+	while (s[i])
+	{
+		if ((s[i] >= 'A' && s[i] <= 'M') || (s[i] >= 'a' && s[i] <= 'm'))
+			s[i] += 13;
+		else if ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
+			s[i] -= 13;
+		write(1, &s[i++], 1);
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		rot_13(argv[1]);
+	write(1, "\n", 1);
+	return (0);
+}

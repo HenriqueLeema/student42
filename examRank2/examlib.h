@@ -33,7 +33,7 @@ typedef struct  s_list
  * start/end of the string
  * 
  */
-int first_word();
+void    first_word(char *str);
 
 /**
  * @brief Program that prints numbers from 1 to 100, each separated by a newline
@@ -45,7 +45,7 @@ int first_word();
  * @note 3. Multiple of 3 and 5: FizzBuzz
  * 
  */
-int fizzbuzz();
+void    fizzbuzz();
 
 /**
  * @brief Function that displays a string on the standard output
@@ -126,7 +126,7 @@ void    rev_print(char *str);
  * @note 4. If the number of arguments is not 1, the program displays a newline
  * 
  */
-int rot_13(int argc, char **argv);
+void    rot_13(char *str);
 
 /**
  * @brief Program that takes a string and displays it, replacing each of its letters by the next one in alphabetical order
@@ -156,18 +156,18 @@ another one (3rd argument)
  * @note 2. If the second argument is not contained in the first one (argv[1]), the program simply rewrites the string followed by a newline
  * 
  */
-int search_and_replace(int argc, char **argv);
+void    search_and_replace(char *str, char old, char new);
 
 /**
  * @brief Program that takes a string and reverses the case of all its letters. Other characters remain unchanged
  * 
- * @warning Allowed functions: Missing
+ * @warning Allowed functions: write
  * 
  * @note 1. You must display the result followed by a newline
  * @note 2. If the number of arguments is not 1, the program displays newline
  * 
  */
-int ulstr(int argc, char **argv);
+void    ulstr(char *str);
 
 /**
  * @brief Program that takes a string and displays this string after replacing each alphabetical character by the opposite alphabetical

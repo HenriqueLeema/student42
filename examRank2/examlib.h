@@ -221,7 +221,7 @@ void    do_op(int frst, char scnd, int thrd);
  * @note It works much like the standard atoi(const char *str) function, see the man
  * 
  */
-int ft_atoi(char *str);
+int     ft_atoi(char *str);
 
 /**
  * @brief Function that reproduces the behavior of strcmp (man strcmp)

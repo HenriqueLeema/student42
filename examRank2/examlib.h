@@ -181,7 +181,7 @@ character, followed by a newline
  * @note 4. If the number of arguments is not 1, the program displays only a newline
  * 
  */
-int alpha_mirror(int argc, char **argv);
+void    alpha_mirror(char *str);
 
 /**
  * @brief Program that takes a single string in lowerCamelCase format and converts it into a string in snake_case format
@@ -191,7 +191,7 @@ int alpha_mirror(int argc, char **argv);
  * @note 1. lowerCamelCase » each word begins with a capital letter except for the first one
  * @note 2. snake_case » each word is in lowercase and separated by an underscore
  */
-int camel_to_snake(int argc, char **argv);
+void    camel_to_snake(char *str);
 
 /**
  * @brief Program that takes three strings:
@@ -209,7 +209,7 @@ int camel_to_snake(int argc, char **argv);
  * @note 5. The result of the operation fits in an int
  * 
  */
-int do_op(int argc, char **argv);
+void    do_op(int frst, char scnd, int thrd);
 
 /**
  * @brief Function that converts the string argument 'str' to an integer (type int) and returns it

@@ -6,20 +6,11 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:45:51 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/12/04 21:49:42 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/04 21:50:25 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
-
-// start with non-digit = 0
-// if once - or +
-        // - remains, + vanishes
-// iterates through spaces
-// handles max/min INT
-// handle negative
-
-
 
 int	ft_atoi(char *str)
 {

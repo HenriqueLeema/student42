@@ -3,13 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hde-souz <hde-souz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:46:15 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 19:50:07 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/07 21:52:35 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../examlib.h"
 
-char    *ft_strrev(char *str);
+char    *ft_strrev(char *str)
+{
+        auto int start = 0;
+        auto int end = 0;
+        char    temp;
+
+        while (str[end])
+                end++;
+        end--;
+
+        while (start < end)
+        {
+                temp = str[start];
+                str[start] = str[end];
+                str[end] = temp;
+                start++;
+                end--; 
+        }
+        return (str);
+}
+
+int     main(int argc, char **argv)
+{
+        if(argc == 2)
+                printf("%s\n", ft_strrev(argv[1]));
+        return (0);
+}

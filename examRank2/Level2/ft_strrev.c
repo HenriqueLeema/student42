@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-souz <hde-souz@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:46:15 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/12/07 21:52:35 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:54:03 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ char    *ft_strrev(char *str)
 
         while (str[end])
                 end++;
-        end--;
 
         while (start < end)
         {
                 temp = str[start];
-                str[start] = str[end];
+                str[start++] = str[--end];
                 str[end] = temp;
-                start++;
-                end--; 
         }
         return (str);
 }

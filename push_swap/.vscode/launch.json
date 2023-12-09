@@ -1,0 +1,33 @@
+{
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "args": [
+                    "--extensionDevelopmentPath=${workspaceFolder}"
+                ],
+                "name": "Launch Extension",
+                "outFiles": [
+                    "${workspaceFolder}/out/**/*.js"
+                ],
+                "preLaunchTask": "npm",
+                "request": "launch",
+                "type": "extensionHost"
+            },
+            {
+                "name": "Debug C Program",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/a.out",
+                "serverReadyAction": {
+                    "action": "openExternally"
+                },
+                "args": [],
+                "stopAtEntry": true,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": true,
+                "MIMode": "gdb",
+                "miDebuggerPath": "/usr/bin/gdb"
+            }
+        ]
+    }

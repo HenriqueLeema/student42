@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hde-souz <hde-souz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:44:56 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/30 23:17:27 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/10 12:41:32 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int main(int argc, char **argv)
     if (argc == 2)
         printf("The length of '%s' is: %i\n", str, ft_strlen(str));
     else
-        printf("Invalid argument count\nTry: ./a.out argument1 argument2\n");
+        printf("Invalid argument count\nTry: ./a.out yourString\n");
     return (0);
 }

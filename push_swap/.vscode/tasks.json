@@ -12,9 +12,9 @@
                     "-Werror",
                     "-static",
                     "${file}",
-                    "${fileDirname}/push_swap.h",
+                    "-I${fileDirname}",
                     "-L${fileDirname}/Libft", "-lft",  // This assumes that the library is named libft.a
-                    "-L${fileDirname}", "-lpush_swap"
+                    "-L${fileDirname}", "-l:push_swap.a"  // This assumes that the library is named libft.a
                 ],
                 "options": {
                     "cwd": "${fileDirname}"

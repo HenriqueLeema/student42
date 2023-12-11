@@ -6,7 +6,7 @@
 #    By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/09 17:09:03 by hde-souz          #+#    #+#              #
-#    Updated: 2023/12/09 18:13:42 by hde-souz         ###   ########.fr        #
+#    Updated: 2023/12/11 20:54:49 by hde-souz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,23 +16,21 @@ AR = ar crs
 RM = rm -f
 NAME = push_swap.a
 LIBDIR = ./Libft
-LIBAR = libft.a
-FILES	= \
-			test.c
-BONUS   = 
-OBJS = ${FILES:.c=.o}
-BONUS_OBJS = $(BONUS:.c=.o)
+LIBAR = ./Libft/libft.a
+CFILES = test.c
+OBJS = ${CFILES:.c=.o}
 
 all: $(NAME)
 
 $(NAME): $(LIBAR) $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) -L$(LIBDIR) -lft
+	cp $< $(NAME)
+	$(AR) $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+OBJS: $(CFILES)
+	$(CC) $(CFLAGS) -c $^
 
-$(LIBAR):
-	@make -C $(LIBDIR)
+$(LIBAR): $(LIBDIR)
+	@make all -C $^
 
 bonus: $(NAME)
 
@@ -41,8 +39,8 @@ clean:
 	@make clean -C $(LIBDIR)
 
 fclean: clean
-	$(RM) $(NAME)
-	@make fclean -C $(LIBDIR)
+	$(RM) push_swap.a
+	$(RM) $(LIBAR)
 
 re: fclean $(NAME)
 

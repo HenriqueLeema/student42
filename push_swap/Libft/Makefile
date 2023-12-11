@@ -42,6 +42,9 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 	@echo "Compiled ✨" 
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 	@echo "Cleared ✨"

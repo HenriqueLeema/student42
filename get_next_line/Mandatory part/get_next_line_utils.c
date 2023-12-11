@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hde-souz <hde-souz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:18:19 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/22 20:01:05 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/11 09:30:16 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*	COMMENTED VERSION
+/*	I DIDN'T NEED ANY UTILS, SO I'M USING THIS FILE FOR A COMMENTED VERSION
 
 char    *parse_line(char *new_line, char *buffer, int sz_bf, int *line_len)
 {

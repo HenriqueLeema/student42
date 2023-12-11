@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hde-souz <hde-souz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:18:19 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/11/25 17:00:33 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/11 09:31:33 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-/*PRACTICAL EXAMPLE OF STATIC FUNCTIONALITY
+/*	I DIDN'T NEED ANY UTILS, SO I'M USING THIS FILE FOR SHOWCASING THE STATIC 
+    FUNCTIONALITY, IN CASE YOU STILL DIDN'T GET IT
 
 int count_calls_static(void)
 {

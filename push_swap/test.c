@@ -6,7 +6,7 @@
 /*   By: hde-souz <hde-souz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:14:24 by hde-souz          #+#    #+#             */
-/*   Updated: 2023/12/09 19:17:32 by hde-souz         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:54:26 by hde-souz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-    ft_printf("Oioi");
+    ft_printf("Oioi\n");
     return (0);
 }
 
